@@ -34,8 +34,8 @@ print(updated_arrests)
 This function takes an argument `data` and, rather uselessly, makes it untidy. This function works on the data set `USArrests`. It takes the columns `Murder`, `Assault`, and `Rape` and makes them into one long column. A new column, `crime_type` is added to classify these crime rates into murder, assault, and rape cases. 
 
 ```{r}
-untidier <- function(data){
-  longer_data <- pivot_longer(data, cols = c(Murder, Assault, Rape), names_to = "crime_type", values_to = "count")
+untidier <- function(data_new){
+  longer_data <- pivot_longer(data_new, cols = c(Murder, Assault, Rape), names_to = "crime_type", values_to = "count")
 }
 
 # To show what the function produces. 
