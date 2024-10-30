@@ -1,0 +1,46 @@
+---
+title: "Function2_Ex1_P3"
+author: '48693'
+date: "2024-10-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Transformation Function 1
+
+This function takes an argument `data` and adds a new column, `total_crime`, which is a total of the murder, assault, and rape cases per 100,000 people in each U.S. state. This function works on the data set `USArrests`. 
+
+```{r}
+library(tidyverse)
+
+total_crimes <- function(data) {
+  mutated_data <- mutate(data, total_crime = Murder + Assault + Rape)
+}
+```
+
+Here is the function being run on the data set `USArrests` and the resulting data frame. 
+
+```{r}
+updated_arrests <- total_crimes(USArrests)
+
+print(updated_arrests)
+```
+
+## Transformation Function 2 
+
+This function takes an argument `data` and, rather uselessly, makes it untidy. This function works on the data set `USArrests`. It takes the columns `Murder`, `Assault`, and `Rape` and makes them into one long column. A new column, `crime_type` is added to classify these crime rates into murder, assault, and rape cases. 
+
+```{r}
+untidier <- function(data_new){
+  longer_data <- pivot_longer(data_new, cols = c(Murder, Assault, Rape), names_to = "crime_type", values_to = "count")
+}
+
+# To show what the function produces. 
+untidy_data <- untidier(USArrests)
+print(untidy_data)
+```
+
+
