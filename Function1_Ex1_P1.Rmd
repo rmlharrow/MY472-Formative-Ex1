@@ -1,0 +1,22 @@
+---
+title: "Function1_Ex1_P1"
+author: '202437257'
+date: "2024-10-28"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Transformation Function 1
+
+This function takes an argument `data` and adds a new column, `total_crime`, which is a total of the murder, assault, and rape cases per 100,000 people in each U.S. state. This function works on the data set `USArrests`. 
+
+```{r}
+total_crimes <- function(data) {
+  mutated_data <- mutate(data, total_crime = Murder + Assault + Rape)
+}
+```
+
+
